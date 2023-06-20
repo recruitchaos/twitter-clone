@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Gilroy',
         textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 30),
+          displayLarge: TextStyle(fontSize: 26),
           displayMedium: TextStyle(fontSize: 24),
           displaySmall: TextStyle(fontSize: 16),
+          bodySmall: TextStyle(fontSize: 12),
         ),
       ),
       home: const WelcomePage(),

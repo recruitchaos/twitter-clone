@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
-  const CustomButton({super.key});
+  final String label;
+  final Color backgroundColor;
+  final Color textColor;
+  const CustomButton({super.key, required this.label, required this.backgroundColor, required this.textColor});
   @override
   State<CustomButton> createState() => _CustomButtonState();
 }
@@ -13,11 +16,14 @@ class _CustomButtonState extends State<CustomButton> {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: const Color(0xff1C9BEF),
+        color: widget.backgroundColor,
+        border: Border.all(
+          width: 1
+        )
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Text("Continue", style: Theme.of(context).textTheme.displaySmall?.apply(color: Colors.white), textAlign: TextAlign.center,),
+        child: Text(widget.label, style: Theme.of(context).textTheme.displaySmall?.apply(color: widget.textColor), textAlign: TextAlign.center,),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:twitter_clone/custom_widgets/custom_button.dart';
 import 'package:twitter_clone/login_screen.dart';
+import 'package:twitter_clone/register_options_screen.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -31,7 +32,11 @@ class _WelcomePageState extends State<WelcomePage> {
             const SizedBox(height: 32,),
             Text("See what's happening in the world right now.", style: Theme.of(context).textTheme.displayLarge, textAlign: TextAlign.left,),
             const SizedBox(height: 26,),
-            const CustomButton(),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterOptionScreen()));
+              },
+              child: const CustomButton(label: 'Continue', textColor: Colors.white, backgroundColor: Color(0xff1C9BEF),)),
             const SizedBox(height:200,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

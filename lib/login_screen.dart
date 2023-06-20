@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:twitter_clone/custom_widgets/custom_button.dart';
 import 'package:twitter_clone/custom_widgets/custom_button_2.dart';
 import 'package:twitter_clone/custom_widgets/custom_text_field.dart';
 
@@ -34,9 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
             CustomTextField(label: 'Email', icon: const Icon(Icons.email), controller: emailController,),
             const SizedBox(height: 20,),
             CustomTextField(label: 'Password', icon: const Icon(Icons.remove_red_eye), controller: passwordController,),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 40),
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 40),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
