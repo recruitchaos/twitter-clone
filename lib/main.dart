@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff1C9BEF)),
         useMaterial3: true,
         fontFamily: 'Gilroy',
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontSize: 30),
-          displayMedium: TextStyle(fontSize: 20),
+          displayMedium: TextStyle(fontSize: 24),
           displaySmall: TextStyle(fontSize: 16),
-        )
+        ),
       ),
       home: const WelcomePage(),
     );
