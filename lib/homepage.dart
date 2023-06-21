@@ -24,8 +24,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: SvgPicture.asset('assets/icon.svg', height: 30, width: 30,),
-        leading: IconButton(icon: Icon(Icons.logout), onPressed: signOut,),
+        leadingWidth: 40,
+        leading: CircleAvatar(),
         centerTitle: true,
+        actions: [
+          IconButton(icon: Icon(Icons.logout), onPressed: signOut,),
+        ],
       ),
     );
   }
