@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:twitter_clone/create_account_screen.dart';
 import 'package:twitter_clone/custom_widgets/custom_button.dart';
 
 import 'login_screen.dart';
@@ -17,7 +18,8 @@ class _RegisterOptionScreenState extends State<RegisterOptionScreen> {
     return Scaffold(
       appBar: AppBar(
         title: SvgPicture.asset('assets/icon.svg', height: 30, width: 30,),
-        leading: Icon(Icons.close),
+        centerTitle: true,
+        leading: IconButton(icon: Icon(Icons.close), onPressed: () { Navigator.pop(context); },),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -34,7 +36,11 @@ class _RegisterOptionScreenState extends State<RegisterOptionScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: Text('or', style: Theme.of(context).textTheme.bodySmall?.apply(color: Colors.grey.shade700),),
               ),
-              CustomButton(label: 'Create Account', backgroundColor: Colors.black, textColor: Colors.white),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount()));
+                },
+                child: CustomButton(label: 'Create Account', backgroundColor: Colors.black, textColor: Colors.white)),
               SizedBox(height: 40,),
               Text("By signing up, you agree to our ",style: Theme.of(context).textTheme.bodySmall?.apply(color: Colors.grey.shade700)),
               Text("Terms, Privacy Policy, and Cookie Use", style: Theme.of(context).textTheme.bodySmall?.apply(color: Color(0xff1C9BEF))),

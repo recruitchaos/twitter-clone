@@ -23,6 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
           width: 30,
           height: 30,
         ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

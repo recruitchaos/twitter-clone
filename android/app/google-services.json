@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "615226397677",
+    "project_id": "twitter-clone-recruitchaos",
+    "storage_bucket": "twitter-clone-recruitchaos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615226397677:android:e2b44c020f0f9908884de4",
+        "android_client_info": {
+          "package_name": "com.example.twitter_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615226397677-ebgrrtu8554igr6oo7ts63h8qjeh2mcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWOyr08dZjn6fl32wDAJ1FX3-BJZi6BWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615226397677-ebgrrtu8554igr6oo7ts63h8qjeh2mcg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "615226397677-rn1sjm1d9qhp9lms62f9mrb585absuu8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.twitterClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
