@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/navigate.dart';
 import 'package:twitter_clone/welcome_page.dart';
-
-import '../homepage.dart';
 
 class AuthAPI extends StatelessWidget {
   const AuthAPI({super.key});
@@ -15,7 +14,7 @@ class AuthAPI extends StatelessWidget {
         builder: (context, snapshot) {
           //USER IS LOGGED IN
           if(snapshot.hasData) {
-            return const HomePage();
+            return const Navigate();
           }
           else {
             return const WelcomePage();
