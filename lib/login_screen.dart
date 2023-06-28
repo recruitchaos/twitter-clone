@@ -35,7 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: SvgPicture.asset('assets/icon.svg', width: 30, height: 30,),
         centerTitle: true,
-        leading: const Icon(Icons.close),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.close)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

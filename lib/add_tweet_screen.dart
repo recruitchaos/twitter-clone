@@ -18,7 +18,6 @@ class _AddTweetScreenState extends State<AddTweetScreen> {
   late String name;
   late String myID;
   final TweetApi _tweetApi = TweetApi();
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   @override
   void initState() {

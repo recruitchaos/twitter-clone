@@ -1,12 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter_clone/add_tweet_screen.dart';
 import 'package:twitter_clone/services/auth_service.dart';
-import 'package:twitter_clone/services/tweet_api.dart';
 import 'package:twitter_clone/welcome_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,13 +25,31 @@ class _HomePageState extends State<HomePage> {
   var collection = FirebaseFirestore.instance.collection('users');
   late List<Map<String, dynamic>> userDetails;
   bool isLoaded = false;
-  final TweetApi _tweetApi = TweetApi();
+  final tweetRef = FirebaseFirestore.instance.collection('tweets');
+  late String tweetedByUid;
+  late String tweetContent;
+  late String tweetedByName;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getTweets();
+  }
 
   void signOut() {
     final authService = Provider.of<AuthService>(context, listen: false);
     authService.signOut();
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => WelcomePage()));
+  }
+
+  getTweets() {
+    tweetRef.get().then((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((DocumentSnapshot doc) {
+        print(doc.data());
+      });
+    });
   }
 
   @override
@@ -164,46 +181,52 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildTweetList() {
     return StreamBuilder(
-      stream: _tweetApi.getTweets(),
-      builder: (context, snapshot) {
-        if(snapshot.hasError){
-          return Text('Something went wrong!');
-        }
-        if(snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
-        }
-        return ListView(
-          children: snapshot.data!.docs.map((document) => _tweet(document)).toList(),
-        );
-      }
-      );
+        stream: FirebaseFirestore.instance.collection('tweets').snapshots(),
+        builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Something went wrong!');
+          }
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
+          print(snapshot.data!.docs.length);
+          return ListView(
+            children: snapshot.data!.docs.map((document) => _tweet(document)).toList(),
+          );
+        });
   }
+}
 
   Widget _tweet(DocumentSnapshot document) {
     Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+    print("hi");
     return Container(
       decoration: BoxDecoration(
           border: Border(
               top: BorderSide(color: Colors.black, width: 0.1),
               bottom: BorderSide(color: Colors.black, width: 0.1))),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
         child: Row(
           children: [
             CircleAvatar(),
+            SizedBox(width: 20,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: [Text(data['name']), Text(data['uid'])],
+                  children: [Text(data['name'], style: TextStyle(fontWeight: FontWeight.w600),),Text(" @", style: TextStyle(color: Colors.grey.shade700),) ,Text(data['uid'], style: TextStyle(color: Colors.grey.shade700),)],
                 ),
                 Text(data['tweetContent']),
+                SizedBox(height: 12,),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.comment_rounded),
-                    Icon(Icons.repeat),
-                    Icon(Icons.favorite_border)
+                    FaIcon(FontAwesomeIcons.comment, size: 12),
+                    SizedBox(width: 30,),
+                    FaIcon(FontAwesomeIcons.retweet, size: 12,),
+                    SizedBox(width: 30,),
+                    FaIcon(FontAwesomeIcons.heart, size: 12,)
                   ],
                 )
               ],
@@ -213,4 +236,3 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}

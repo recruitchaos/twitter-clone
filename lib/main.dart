@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff1C9BEF)),
         useMaterial3: true,
-        fontFamily: 'Gilroy',
+        fontFamily: 'Chirp',
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontSize: 26),
           displayMedium: TextStyle(fontSize: 24),
