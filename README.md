@@ -1,5 +1,5 @@
 
-# Twitter Clone ![App Icon](assets/icon.svg)
+# Twitter Clone <img src = "assets/icon.svg" width = "100">
 
 A twitter clone made with Dart, taking flutter as frontend service and firebase as backend service
 
