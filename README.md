@@ -19,7 +19,7 @@ A twitter clone made with Dart, taking flutter as frontend service and firebase 
 
 ## Screenshots
 
-![App Icon](assets/icon.svg)
+
 
 
 ## Author
