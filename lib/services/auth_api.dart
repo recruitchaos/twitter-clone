@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/navigate.dart';
-import 'package:twitter_clone/welcome_page.dart';
+import 'package:twitter_clone/views/navbar_views/navigate.dart';
+import 'package:twitter_clone/views/auth_views/welcome_page.dart';
 
 class AuthAPI extends StatelessWidget {
   const AuthAPI({super.key});

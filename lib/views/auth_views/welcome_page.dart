@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:twitter_clone/custom_widgets/custom_button.dart';
-import 'package:twitter_clone/login_screen.dart';
-import 'package:twitter_clone/register_options_screen.dart';
+import 'package:twitter_clone/views/auth_views/login_screen.dart';
+import 'package:twitter_clone/views/auth_views/register_options_screen.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});

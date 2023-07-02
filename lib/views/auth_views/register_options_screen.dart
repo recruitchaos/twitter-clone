@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:twitter_clone/create_account_screen.dart';
+import 'package:twitter_clone/views/auth_views/create_account_screen.dart';
 import 'package:twitter_clone/custom_widgets/custom_button.dart';
 
 import 'login_screen.dart';

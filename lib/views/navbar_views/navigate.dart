@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/homepage.dart';
-import 'package:twitter_clone/message_page.dart';
-import 'package:twitter_clone/notification_page.dart';
-import 'package:twitter_clone/search_page.dart';
+import 'package:twitter_clone/views/navbar_views/homepage.dart';
+import 'package:twitter_clone/views/navbar_views/message_page.dart';
+import 'package:twitter_clone/views/navbar_views/notification_page.dart';
+import 'package:twitter_clone/views/navbar_views/search_page.dart';
 
 class Navigate extends StatefulWidget {
   const Navigate({super.key});

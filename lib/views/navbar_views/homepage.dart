@@ -2,11 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
-import 'package:twitter_clone/add_tweet_screen.dart';
+import 'package:twitter_clone/views/others/add_tweet_screen.dart';
 import 'package:twitter_clone/services/auth_service.dart';
-import 'package:twitter_clone/welcome_page.dart';
+import 'package:twitter_clone/views/auth_views/welcome_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,39 +17,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool haveAvatar = false;
+
   String? myID;
   String? name;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  var collection = FirebaseFirestore.instance.collection('users');
-  late List<Map<String, dynamic>> userDetails;
   bool isLoaded = false;
-  final tweetRef = FirebaseFirestore.instance.collection('tweets');
-  late String tweetedByUid;
-  late String tweetContent;
-  late String tweetedByName;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getTweets();
-  }
 
   void signOut() {
     final authService = Provider.of<AuthService>(context, listen: false);
     authService.signOut();
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => WelcomePage()));
-  }
-
-  getTweets() {
-    tweetRef.get().then((QuerySnapshot snapshot) {
-      snapshot.docs.forEach((DocumentSnapshot doc) {
-        print(doc.data());
-      });
-    });
   }
 
   @override
@@ -222,11 +200,20 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    FaIcon(FontAwesomeIcons.comment, size: 12),
+                    Container(
+                      child: Image.asset('assets/messenger.png', color: Colors.grey.shade700, height: 14,),
+                    ),
                     SizedBox(width: 30,),
-                    FaIcon(FontAwesomeIcons.retweet, size: 12,),
+                    LikeButton(
+                      size: 22,
+                      circleColor: CircleColor(start: Colors.green, end: Colors.green),
+                      bubblesColor: const BubblesColor(dotPrimaryColor: Colors.green, dotSecondaryColor: Colors.green),
+                      likeBuilder: (isLiked) {
+                        return  isLiked ? Image.asset('assets/refresh.png', color: Colors.green,) : Image.asset('assets/refresh.png');
+                      },
+                    ),
                     SizedBox(width: 30,),
-                    FaIcon(FontAwesomeIcons.heart, size: 12,)
+                    LikeButton(size: 16, likeCount: 10, likeCountAnimationType: LikeCountAnimationType.none,)
                   ],
                 )
               ],
