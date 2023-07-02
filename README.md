@@ -4,7 +4,7 @@
 
 A twitter clone made with Dart, taking flutter as frontend service and firebase as backend service
 
-![alt_text](https://img.shields.io/badge/Dart-3-#0175C2?style=for-the-badge&logo=Dart)
+![alt_text](https://img.shields.io/badge/Flutter-3-#02569B?style=for-the-badge&logo=Flutter)
 
 
 
