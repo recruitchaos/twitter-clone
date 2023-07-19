@@ -20,6 +20,7 @@ A twitter clone made with Dart, taking flutter as frontend service and firebase 
 ## Screenshots
 
 <img src = "assets/welcome_screen.png" width = "200">
+Welcome Screen
 
 ## Author
 
