@@ -20,7 +20,7 @@ A twitter clone made with Dart, taking flutter as frontend service and firebase 
 ## Screenshots
 
 <p float="left">
-    <img src = "assets/welcome_screen.png" width = "200">
+    <img src = "assets/welcome_screen.png" width = "200" style="margin-right: 10px;">
     <img src = "assets/screen_1.png" width = "200">
 </p>
 
