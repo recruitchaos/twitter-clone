@@ -24,10 +24,6 @@ A twitter clone made with Dart, taking flutter as frontend service and firebase 
     <img src = "assets/screen_1.png" width = "200">
 </p>
 
-<video width="320" height="240" autoplay>
-  <source src="assets/tweet_feature.mov">
-Your browser does not support the video tag.
-</video>
 
 ## Author
 
@@ -35,6 +31,10 @@ Your browser does not support the video tag.
 
 
 ## Demo
+
+<video width="320" height="240" autoplay>
+    <source src="assets/tweet_feature.mov" type="video/mp4">
+</video>
 
 Insert gif or link to demo
 
