@@ -32,9 +32,11 @@ A twitter clone made with Dart, taking flutter as frontend service and firebase 
 
 ## Demo
 
-<video width="320" height="240" autoplay>
-    <source src="assets/tweet_feature.mov" type="video/mp4">
-</video>
+
+
+https://github.com/recruitchaos/twitter-clone/assets/93324285/0f963e74-18f5-47e3-b92c-a3e6cfa8773b
+
+
 
 Insert gif or link to demo
 
